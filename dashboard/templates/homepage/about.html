@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TRTI - Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'images/logo_trti.png' %}" rel="icon">
+  <link href="{% static 'NiceAdmin/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Nunito|Poppins" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+  
+  <!-- Template Main CSS File -->
+  <link href="{% static 'NiceAdmin/assets/css/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+  {% include 'homepage/header.html' %}
+
+<main class="wrapper_box" style="background:white">
+    <div class="container-fluid m-0 p-0">
+        <div class="position-relative banner">
+            <img class="w-100 overflow-hidden" src="https://trti.maharashtra.gov.in/homepage/images/about_img.jpg" alt="About-Banner-Image">
+            <div class="carousel-caption">
+                <div class="container">
+                    <div class="position-div bg-blue-text bg-dark p-3">
+                        <h4 class="text-white font-weight-bold">About Us</h4>
+                        <p class="mb-0 font-14">
+                            <a class="text-warning" href="{% url 'about' %}" title="About Us">About Us</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 p-3">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-justify" style="font-size: 14px;">
+                    Presently Tribal Research and Training Institute, Maharashtra State, Pune is an autonomous organization of the Government of Maharashtra, which was established under the centrally sponsored scheme in 1962. Tribal research and training institutions are working in the tribal-dominated states of the country to conduct research on various aspects of tribal subjects.
+                </p>
+
+                <p style="font-size: 14px;">
+                    The following objectives of the organization were set up during the establishment of this institution.
+                </p>
+
+                <p style="font-size: 16px; color:#44428f;">
+                    <strong>Organization's Objectives and Functions</strong>
+                </p>
+
+                <ol style="font-size: 14px; color:#686868;">
+                    <li class="text-justify">Evaluate the impact of various schemes implemented by the Central and State Government for the financial, educational and social development of tribal communities on tribal life.</li>
+                    <li class="text-justify">Do research on issues related to tribal life and development.</li>
+                    <li class="text-justify">Providing pre-employment training for the officers / employees working in Tribal Development Department and for tribal students.</li>
+                    <li class="text-justify">Organizing different training sessions for the tribal.</li>
+                    <li class="text-justify">Adivasi cultural museum to organize tribal arts and culture, organize handicraft exhibition in different urban areas, and create a short film on tribal life.</li>
+                    <li class="text-justify">Administrative control over the functioning of Scheduled Tribes Certificate Examination Committees working in the State level in Maharashtra State.</li>
+                </ol>
+
+                <p class="text-justify" style="font-size: 14px;">
+                    Tribal Research and Training Institute has been the only government organization in the state to conduct various training programs in the context of Tribal subjects for the last 50 years and tribal subjects. The Central Government has appointed this organization as the nodal agency for all tribal research and training institutes in the country by taking note of the work of this organization.
+                </p>
+
+                <p class="text-justify" style="font-size: 14px;">
+                    The golden festival was celebrated by tribal research and training organization in 2013 and the golden festival was inaugurated at the hands of the then President of India Mr. Pranab Mukherjee. On this occasion, this institution has been given the status of an autonomous institution by fixing the following objectives by increasing the scope of the original objectives of the organization to advise and guide the Tribal for the overall development of tribal people as well as for the overall development of tribals.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+  {% include 'homepage/footer.html' %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/vendor/chart.js/chart.umd.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'NiceAdmin/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

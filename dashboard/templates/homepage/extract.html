@@ -1,0 +1,230 @@
+{% load static custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>TRTI - Dashboard</title>
+
+    <!-- Favicons -->
+    <link href="{% static 'images/logo_trti.png' %}" rel="icon">
+    <link href="{% static 'NiceAdmin/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Nunito|Poppins&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'NiceAdmin/assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+    <link href="{% static 'NiceAdmin/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'NiceAdmin/assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'NiceAdmin/assets/css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .position-div {
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .table-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .table-title {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .data-table th, .data-table td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        .last-updated {
+            text-align: right;
+            padding: 10px 20px;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'homepage/header.html' %}
+
+    <main class="wrapper_box" style="background:white">
+        <!-- Banner Section -->
+        <div class="container-fluid m-0 p-0">
+            <div class="position-relative banner">
+                <img class="w-100" src="https://trti.maharashtra.gov.in/homepage/images/about_img.jpg" alt="About-Banner-Image">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="position-div p-3">
+                            <h4 class="text-white font-weight-bold">Data Extraction</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Updated Time -->
+        <div class="last-updated">
+            Last Updated: <span id="last-updated">{{ last_updated }}</span>
+        </div>
+
+        <!-- MySQL Data Section -->
+        <div class="table-container">
+            <h3 class="table-title">Aadiswayam Data</h3>
+            {% if mysql_data %}
+            <div class="table-responsive">
+                <table class="data-table" id="mysql-table">
+                    <thead>
+                        <tr>
+                            {% for column in mysql_columns %}
+                            <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in mysql_data %}
+                        <tr>
+                            {% for value in row %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="no-data">
+                <p>No MySQL data available</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- MongoDB Data Section -->
+        <div class="table-container">
+            <h3 class="table-title">Competitive Pre-Examination Training Implementation and Monitoring Portal Data</h3>
+            {% if mongo_data %}
+            <div class="table-responsive">
+                <table class="data-table" id="mongo-table">
+                    <thead>
+                        <tr>
+                            {% for column in mongo_columns %}
+                            <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for doc in mongo_data %}
+                        <tr>
+                            {% for column in mongo_columns %}
+                            <td>{{ doc|get_item:column }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="no-data">
+                <p>No MongoDB data available</p>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+    {% include 'homepage/footer.html' %}
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+
+    <!-- Custom JavaScript for dynamic updates -->
+    <script>
+        setInterval(function() {
+            location.reload(); 
+        }, 10000); 
+        
+        function updateData() {
+            fetch('/get-updated-data/')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Update the "last updated" timestamp
+                        document.getElementById('last-updated').textContent = data.data.last_updated;
+        
+                        if (data.data.new_data) {
+                            // Update MySQL Table
+                            updateTable('mysql-table', data.data.mysql_columns, data.data.mysql_data);
+        
+                            // Update MongoDB Table
+                            updateTable('mongo-table', data.data.mongo_columns, data.data.mongo_data);
+                        }
+                    } else {
+                        
+                
+                    }
+                })
+                .catch(error => {
+                    
+                });
+        }
+        
+        function updateTable(tableId, columns, data) {
+            let table = document.getElementById(tableId);
+            let tbody = table.getElementsByTagName('tbody')[0];
+        
+            tbody.innerHTML = '';  // Clear existing rows
+        
+            // Add new rows to the table
+            data.forEach(row => {
+                let tr = document.createElement('tr');
+                columns.forEach(column => {
+                    let td = document.createElement('td');
+                    td.textContent = row[column] || 'N/A';  // Fallback to 'N/A' if no value
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+        }
+        
+        // Set an interval to update the data every 30 seconds (30000 ms)
+        setInterval(updateData, 10000);
+    </script>        
+</body>
+</html>

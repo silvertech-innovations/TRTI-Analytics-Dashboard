@@ -1,0 +1,142 @@
+<!-- ======= Header ======= -->
+
+<div class="warli-bg w-100 bg-light">
+    <div class="container-fluid p-0 py-1 w-90">
+        <div class="header-logo-section container-fluid py-3 display-head">
+            <div class="row align-items-center justify-content-between">
+                <!-- Left section: Logo and title -->
+                <div class="col-md-4 d-flex align-items-center trti-logo-container">
+
+                </div>
+
+                <!-- Optional empty space (adjust column size as needed) -->
+                <div class="col-md-4 text-center d-flex align-items-center trti-logo-container">
+                    <h5 class="fellowship-text trti-title">Intelligent Analytics Dashboard</h5>
+                </div>
+
+                <!-- Right section: Navigation -->
+                <div class="col-md-4 text-end">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<header id="header" class="header sticky-top py-3" style="background: black;">
+  <div class="container-fluid d-flex justify-content-center align-items-center">
+    <nav class="header-nav">
+      <ul class="d-flex align-items-center justify-content-center">
+              <div class="dropdown justify-content-left">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="navDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  Projects
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="navDropdown">
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="/aadiswayam">
+                      Aadiswayam
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="/fellowship">
+                      Fellowship
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      C.P.E.T.P
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      Aadivan Mitra
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      Maha Tribes
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      T-Ambition
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      Sicklecell
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      MahaAdim
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      E-Tribe
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      F.R.A
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      Eklavya Kushal
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="#">
+                      Adim Vikas
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+
+              <li class="nav-item dropdown pe-3">
+                <a class="nav-link nav-profile d-flex align-items-center pe-0 {{ 'active' if request.path == '/masterDash' else '' }}" href="/master_dashboard">
+                  <span class="d-none d-md-block ps-2" style="font-size:17px">Master Dashboard</span>
+                </a><!-- End Profile Iamge Icon -->
+              </li><!-- End Profile Nav -->
+
+              <li class="nav-item dropdown pe-3">
+                <a class="nav-link nav-profile d-flex align-items-center pe-0 {{ 'active' if request.path == '/reports' else '' }}" href="#">
+                  <span class="d-none d-md-block ps-2" style="font-size:17px">Reports</span>
+                </a><!-- End Profile Iamge Icon -->
+              </li><!-- End Profile Nav -->
+
+              <li class="nav-item dropdown pe-3">
+                <a class="nav-link nav-profile d-flex align-items-center pe-0 {{ 'active' if request.path == '/suggestions' else '' }}" href="/suggestions">
+                  <span class="d-none d-md-block ps-2" style="font-size:17px">Suggestions</span>
+                </a><!-- End Profile Iamge Icon -->
+              </li><!-- End Profile Nav -->
+
+              <li class="nav-item dropdown pe-3">
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="{{ url_for('logout') }}">
+                  <span class="d-none d-md-block ps-2" style="font-size:17px">Logout</span>
+                </a><!-- End Profile Iamge Icon -->
+              </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+  </div>
+  </div>
+</header><!-- End Header -->
+
+

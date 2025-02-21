@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TRTI - Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/images/logo_trti.png" rel="icon">
+  <link href="static/NiceAdmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/NiceAdmin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="static/NiceAdmin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="static/NiceAdmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/NiceAdmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/NiceAdmin/assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7x4ejsF5IDuQd6IVj9Ohge+NTl5pXcOU5+W" crossorigin="anonymous">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+
+<body>
+
+
+  {% include 'masterDash/header.html' %}
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="container">
+                <h4 class="mt-5 text-white">Dynamic Dashboard</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="col-md-4">
+                        <form method="GET" action="/">
+                            <div class="form-group">
+                                <label for="startDate">Start Date:</label>
+                                <input type="date" class="form-control" id="startDate" name="start_date">
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">End Date:</label>
+                                <input type="date" class="form-control" id="endDate" name="end_date">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Apply Filter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Card 1 -->
+            <div class="col-md-6 mt-3">
+                <div class="card dashboard-card" style="background:black;">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Project wise Budget Disbursed</h5>
+                        <canvas id="chart1"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-6 mt-3">
+                <div class="card dashboard-card" style="background:black;">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Customer and User Data</h5>
+                        <canvas id="chart2"></canvas>
+                    </div>
+                </div>
+            </div>
+           <!-- Card 1 -->
+<!--            <div class="row col-md-12 mt-3">-->
+<!--                {% for i in range(1, 13) %}-->
+<!--                <div class="col-md-1 mb-3">-->
+<!--                    <div class="card dashboard-card" style="background:black; border: 1px solid white;">-->
+<!--                        <div class="card-body text-center">-->
+<!--                            <h5 class="card-title text-white">Project {{ i }}</h5>-->
+<!--                            <p class="card-text text-white">Count: {{ i * 1000 }}</p> &lt;!&ndash; Example count &ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+
+        </div>
+    </div>
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer" style="background:black">
+    <div class="copyright text-white">
+      Website Content Owned & Managed by Tribal Research And Training Institute | MoTA | Maharashtra, India
+    </div>
+    <div class="credits text-white">
+      Designed and Developed by <a href="https://www.icspune.com/">Integrated Consultancy Services</a>
+    </div>
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="static/NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/NiceAdmin/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="static/NiceAdmin/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="static/NiceAdmin/assets/vendor/quill/quill.min.js"></script>
+  <script src="static/NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="static/NiceAdmin/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="static/NiceAdmin/assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzXPEbbK5z6ZQpc1pDmmGo1rYf+U56Bv7XkzSmV2vldz" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha384-CWvVxR2Bv+eJ98FWPtt/WL5kCguI5+gx7sAmEMf5bUl2HPxOsifjyOCFj3cFUnU0" crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/NiceAdmin/assets/js/main.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+        // Chart 1
+        new Chart(document.getElementById('chart1').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['Aadiswayam', 'Fellowship', 'C.P.E.T.P', 'Aadivan Mitra', 'Maha Tribes','T-Ambition', 'Sicklecell', 'MahaAdim','E-Tribe', 'F.R.A', 'Eklavya Kushal'],
+                datasets: [{
+                    label: 'Budget Line Chart',
+                    data: [10, 20, 130, 40, 150, 60, 30, 64, 345, 45, 01, 43],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                    fill: true
+                }]
+            },options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'ORGANIZATIONS',  // Correctly placing the x-axis label
+                                color: 'yellow',  // Color of the axis label
+                            },
+                            ticks: {
+                                color: 'white'  // White color for x-axis labels
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'  // Light grid lines for x-axis
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'BUDGET in INR.',  // Correctly placing the x-axis label
+                                color: 'yellow',  // Color of the axis label
+                            },
+                            ticks: {
+                                color: 'white'  // White color for y-axis labels
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'  // Light grid lines for y-axis
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'  // White color for legend text
+                            }
+                        }
+                    }
+                }
+            });
+
+        // Chart 2
+        new Chart(document.getElementById('chart2').getContext('2d'), {
+        type: 'bar',
+        data: {
+                labels: ['Aadiswayam', 'Fellowship', 'C.P.E.T.P', 'Aadivan Mitra', 'Maha Tribes','T-Ambition', 'Sicklecell', 'MahaAdim','E-Tribe', 'F.R.A', 'Eklavya Kushal'],
+                datasets: [{
+                label: 'User Data Bar Chart',
+                data: [12, 19, 3, 5, 2, 40, 50, 23, 45, 12, 43, 56],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',  // Semi-transparent red
+                    'rgba(54, 162, 235, 0.5)',  // Semi-transparent blue
+                    'rgba(255, 206, 86, 0.5)',  // Semi-transparent yellow
+                    'rgba(75, 192, 192, 0.5)',  // Semi-transparent green
+                    'rgba(153, 102, 255, 0.5)'  // Semi-transparent purple
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',  // Red border
+                    'rgba(54, 162, 235, 1)',  // Blue border
+                    'rgba(255, 206, 86, 1)',  // Yellow border
+                    'rgba(75, 192, 192, 1)',  // Green border
+                    'rgba(153, 102, 255, 1)'  // Purple border
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'ORGANIZATIONS',  // Correctly placing the x-axis label
+                        color: 'yellow',  // Color of the axis label
+                    },
+                    ticks: {
+                        color: 'white'  // White color for x-axis labels
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'  // Light grid lines for x-axis
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'NUMBER OF USERS',  // Correctly placing the x-axis label
+                        color: 'yellow',  // Color of the axis label
+                    },
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'white'  // White color for y-axis labels
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'  // Light grid lines for y-axis
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'  // White color for legend text
+                    }
+                }
+            }
+        }
+    });
+
+
+    // Additional charts (3-16) would be initialized similarly...
+
+     var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',  // Change this to 'line', 'pie', etc. as needed
+            data: {
+                labels: {{ labels|tojson }},
+                datasets: [{
+                    label: 'Sample Data',
+                    data: {{ data|tojson }},
+                    backgroundColor: 'rgba(30, 144, 255, 0.2)',
+                    borderColor: '#1E90FF',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)',
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)',
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

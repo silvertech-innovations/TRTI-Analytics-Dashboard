@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TRTI - Contact Us</title>
+
+  <!-- Favicons -->
+  <link href="{% static 'images/logo_trti.png' %}" rel="icon">
+  <link href="{% static 'NiceAdmin/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Nunito|Poppins" rel="stylesheet">
+
+  <!-- FontAwesome Icons (Ensuring icons are loaded properly) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+  <link href="{% static 'NiceAdmin/assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  {% include 'homepage/header.html' %}
+
+  <main class="wrapper_box bg-white">
+    <div class="container-fluid m-0 p-0">
+        <div class="position-relative banner">
+            <img class="w-100 overflow-hidden" src="https://trti.maharashtra.gov.in/homepage/images/about_img.jpg" alt="About-Banner-Image">
+            <div class="carousel-caption">
+                <div class="container">
+                    <div class="position-div bg-dark p-3 text-center">
+                        <h4 class="text-white fw-bold">Contact Us</h4>
+                        <p class="mb-0 font-14"><a class="text-warning" href="{% url 'contact' %}" title="Contact Us">Contact Us</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page Content -->
+    <section class="section-menupages">
+        <div class="container w-90 menupages" style="font-family: sans-serif;">
+            <h3 class="d-none">Main content</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header p-4 bg-transparent">
+                            <h4 class="text-primary mb-0"> <i class="fas fa-envelope-open"></i> Mailing Address</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-primary font-18 font-weight-light font-16">Tribal Research & Training Institute, Pune</p>
+                            <h5 class="font-14"><span class="fw-bold">Jurisdiction:</span> Maharashtra State 28, Queen's Garden, Pune - 411 001</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <iframe class="w-100 h-100 wow fadeInRight"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.9754111593907!2d73.87836777586743!3d18.530013268884417!2m3!1f0!2f0!3f0!m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c054ff1dbce7%3A0xe1bd1e9f52390a88!2sTribal%20Research%20%26%20Training%20Institute!5e0!3m2!1sen!2sin!4v1694414536791!5m2!1sen!2sin"
+                        style="border: 0px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  {% include 'homepage/footer.html' %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+  <!-- Vendor JS Files -->
+  <script src="{% static 'NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'NiceAdmin/assets/js/main.js' %}"></script>
+
+</body>
+</html>

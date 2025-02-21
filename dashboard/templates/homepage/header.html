@@ -1,0 +1,77 @@
+{% load static %}
+
+<!-- ======= Header ======= -->
+<div class="warli-bg w-100 bg-light">
+    <div class="container-fluid p-0 py-1 w-90">
+        <div class="header-logo-section container-fluid py-3 display-head">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-4 d-flex align-items-center trti-logo-container">
+                    <img src="{% static 'asset/images/trti.png' %}" class="w-100px" alt="TRTI Logo">
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <h5 class="fellowship-text trti-title">Intelligent Dashboard & Data Analytics</h5>
+                </div>
+
+                <div class="col-md-4 text-end">
+                    <img src="{% static 'asset/images/satyamev.png' %}" alt="National Emblem" style="height:100px">
+                    <img src="{% static 'asset/images/maha-logo.png' %}" alt="Maharashtra logo" style="height:120px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header id="header" class="header sticky-top d-flex align-items-center justify-content-center">
+    <div>
+        <nav class="header-nav">
+            <ul class="d-flex align-items-center justify-content-center">
+                <!-- Home Icon -->
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0 {% if request.path == '/' %}active{% endif %}" href="/">
+                        <i class="fas fa-home"></i> 
+                        <span class="d-none d-md-block ps-2" style="font-size:17px">Home</span>
+                    </a>
+                </li>
+                <!-- Contact Icon -->
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0 {% if request.path == '/contact' %}active{% endif %}" href="/contact">
+                        <i class="fas fa-envelope"></i> 
+                        <span class="d-none d-md-block ps-2" style="font-size:17px">Contact Us</span>
+                    </a>
+                </li>
+                <!-- About Icon -->
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0 {% if request.path == '/about' %}active{% endif %}" href="/about">
+                        <i class="fas fa-info-circle"></i> 
+                        <span class="d-none d-md-block ps-2" style="font-size:17px">About Us</span>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0 {% if request.path == '/extract' %}active{% endif %}" href="/extract">
+                        <i class="fas fa-database"></i>
+                        <span class="d-none d-md-block ps-2" style="font-size:17px">View Data</span>
+                    </a>
+                </li>
+
+                <!-- Conditional Login/Logout Links -->
+                <li class="nav-item dropdown pe-3">
+                    {% if request.session.is_authenticated %}
+                        <!-- Show Logout Link with Icon -->
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0 {% if request.path == '/logout' %}active{% endif %}" href="{% url 'logout' %}">
+                            <i class="fas fa-sign-out-alt"></i> <!-- Logout Icon -->
+                            <span class="d-none d-md-block ps-2" style="font-size:17px">Logout</span>
+                        </a>
+                    {% else %}
+                        <!-- Show Login Link with Icon -->
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0 {% if request.path == '/login' %}active{% endif %}" href="{% url 'login' %}">
+                            <i class="fas fa-sign-in-alt"></i> <!-- Login Icon -->
+                            <span class="d-none d-md-block ps-2" style="font-size:17px">Login</span>
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  <title>TRTI - Dashboard</title>
+  <meta name="description" content="Contact Tribal Research & Training Institute (TRTI) Pune for inquiries and information. Find our address and location map here.">
+  <meta name="keywords" content="TRTI, Pune, Tribal Research, Contact, Address, Maharashtra">
+  <link rel="canonical" href="https://trti.maharashtra.gov.in/contact">
+  <meta property="og:title" content="TRTI - Contact Us">
+  <meta property="og:description" content="Get in touch with Tribal Research & Training Institute (TRTI), Pune.">
+  <meta property="og:image" content="{% static 'images/logo_trti.png' %}">
+  
+  <!-- Favicons -->
+  <link href="{% static 'images/logo_trti.png' %}" rel="icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Nunito:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome & Bootstrap CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="{% static 'NiceAdmin/assets/css/style.css' %}" rel="stylesheet">
+  
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  {% include 'homepage/header.html' %}
+
+  <main class="wrapper_box bg-white">
+    <div class="container-fluid m-0 p-0">
+        <div class="position-relative banner">
+            <img class="w-100 overflow-hidden" src="https://trti.maharashtra.gov.in/homepage/images/about_img.jpg" alt="TRTI About Us Banner" loading="lazy">
+            <div class="carousel-caption" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 10px; border-radius: 5px;">
+                <div class="container">
+                    <div class="position-div bg-blue-text bg-dark p-3">
+                        <h4 class="text-white font-weight-bold">Contact Us</h4>
+                        <p class="mb-0 font-14"><a class="text-warning fw-bold" href="{% url 'contact' %}" title="Contact Us">Contact Us</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page Content -->
+    <section class="section-menupages">
+        <div class="container w-90 menupages">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-header p-4 bg-transparent">
+                            <h4 class="text-primary mb-0"> <i class="fas fa-envelope-open"></i> Mailing Address</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-primary font-18 font-weight-light font-16">Tribal Research & Training Institute, Pune</p>
+                            {% comment %} <h5 class="font-14"> <span class="fw-bold">Jurisdiction:</span> Maharashtra State 28, Queen's Garden, Pune - 411 001</h5> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <iframe class="w-100 map-container"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.9754111593907!2d73.87836777586743!3d18.530013268884417!2m3!1f0!2f0!3f0!m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c054ff1dbce7%3A0xe1bd1e9f52390a88!2sTribal%20Research%20%26%20Training%20Institute!5e0!3m2!1sen!2sin!4v1694414536791!5m2!1sen!2sin"
+                        style="border: 0px; min-height: 300px;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  {% include 'homepage/footer.html' %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" role="button" aria-label="Back to Top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'NiceAdmin/assets/js/main.js' %}" defer></script>
+</body>
+</html>
